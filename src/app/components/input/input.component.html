@@ -1,0 +1,24 @@
+<form>
+  <div class="password-container">
+    <div>
+      <input
+        [type]="inputType"
+        class="password-input"
+        placeholder="Enter your password"
+        [(ngModel)]="checkPassword"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <button type="button" class="password-button" (click)="changeInputType()">
+        Show password
+      </button>
+    </div>
+
+    <div class="strength-indicator">
+      <div
+        *ngFor="let class of checkPassword | passwordCheck"
+        class="section"
+        [class]="class"
+      ></div>
+    </div>
+  </div>
+</form>
